@@ -1,0 +1,2 @@
+# AndroidFirestoreArchitectureComponents
+Android application using Google Firestore and Architecture Components
