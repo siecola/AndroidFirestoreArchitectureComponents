@@ -52,7 +52,7 @@ At this time, the Firestore database is configured for the application, but it's
 
 To configure the Firestore security rules, inside its section, access the `Rules` tab. The current security rule will be shown. Change it to the following:
 
-```json
+```properties
 service cloud.firestore {
   match /databases/{database}/documents {
     match /products/{product} {
@@ -88,7 +88,7 @@ To implement the Android application it's necessary to import some libraries to 
 
 * Add the `google-services` dependency:
 
-  ```json
+  ```properties
   dependencies {
   	classpath 'com.android.tools.build:gradle:3.4.0'
   	classpath 'com.google.gms:google-services:4.2.0'
@@ -103,7 +103,7 @@ To implement the Android application it's necessary to import some libraries to 
 
 * Inside the `dependencies` section, add these dependencies:
 
-  ```json
+  ```properties
   implementation 'com.android.support:recyclerview-v7:28.0.0'
   
   implementation "android.arch.lifecycle:extensions:1.1.1"
@@ -128,13 +128,13 @@ To implement the Android application it's necessary to import some libraries to 
 
 ## 4) Creating the SignInActivity view and activity
 
-Create the `SignInActivity` as describe [here](), to be shown when there is no user signed in.
+Create the `SignInActivity` as describe [here](https://github.com/siecola/AndroidFirestoreArchitectureComponents/blob/master/app/src/main/java/br/com/siecola/firestorearchcomp/SignInActivity.java), to be shown when there is no user signed in.
 
 
 
 ## 5) Adapting the MainActivity class
 
-The `MainActivity` from the template is good, but it's necessary some adjusts to work with multiple fragments as designed here, so adapt it as described [here]().
+The `MainActivity` from the template is good, but it's necessary some adjusts to work with multiple fragments as designed here, so adapt it as described [here](https://github.com/siecola/AndroidFirestoreArchitectureComponents/blob/master/app/src/main/java/br/com/siecola/firestorearchcomp/MainActivity.java).
 
 
 
@@ -148,14 +148,14 @@ The parameters in the model represents the fields in the Firestore collection en
 
 One important field here is the `userId` used by the security rules to allow access to the signed in user through its `id` in Firebase Authentication. 
 
+One can check its implementation [here](https://github.com/siecola/AndroidFirestoreArchitectureComponents/blob/master/app/src/main/java/br/com/siecola/firestorearchcomp/model/Product.java).
 
 
 ### 6.2) Product list adapter
 
 This adapter is responsible to convert an instance of a product to an item to be shown in the `Recycle View` component, which is a good choice to be used in this application, since it's expect to update information in realtime, when some information of a product changes or even when a new product is added.
 
-One can check its implementation [here]().
-
+One can check its implementation [here](https://github.com/siecola/AndroidFirestoreArchitectureComponents/blob/master/app/src/main/java/br/com/siecola/firestorearchcomp/adapter/ProductAdapter.java).
 
 
 ### 6.3) Product repository
@@ -164,7 +164,7 @@ This is the responsible to access the database itself. It has all the methods to
 
 To provide realtime updates to the application, the implementations of the search methods use *listeners* to update the views with changes in the product collection. Such methods should only be used by classes who extends the `ViewModel` class.
 
-One can check its implementation [here]().
+One can check its implementation [here](https://github.com/siecola/AndroidFirestoreArchitectureComponents/blob/master/app/src/main/java/br/com/siecola/firestorearchcomp/repository/ProductRepository.java).
 
 
 
@@ -172,7 +172,7 @@ One can check its implementation [here]().
 
 This class is responsible to provide realtime data (a list of products or just a product) to the views such Fragments. They are lifecycle-aware, which means it can manage the changes in the UI, behaving exactly as it view who owner it.
 
-One can check its implementation [here]().
+One can check its implementation [here](https://github.com/siecola/AndroidFirestoreArchitectureComponents/blob/master/app/src/main/java/br/com/siecola/firestorearchcomp/viewmodel/ProductViewModel.java).
 
 ## 
 
@@ -182,7 +182,7 @@ This view is responsible to present the list of products to the user, but using 
 
 This approach also uses the `RecycleView` component to create the products list. It is the proper one when the list would suffer updates.
 
-One can check its implementation [here]().
+One can check its implementation [here](https://github.com/siecola/AndroidFirestoreArchitectureComponents/blob/master/app/src/main/java/br/com/siecola/firestorearchcomp/fragment/ProductsListFragment.java).
 
 
 
@@ -190,7 +190,7 @@ One can check its implementation [here]().
 
 This is view is responsible create or edit a product. It also uses the `ProductViewModel` to update the view when there is some modification in a specific product.
 
-One can check its implementation [here]().
+One can check its implementation [here](https://github.com/siecola/AndroidFirestoreArchitectureComponents/blob/master/app/src/main/java/br/com/siecola/firestorearchcomp/fragment/ProductFragment.java).
 
 
 
