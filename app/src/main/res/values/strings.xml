@@ -2,8 +2,19 @@
     <string name="app_name">FirestoreArchComp</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Firestore and Arch Components</string>
+    <string name="nav_header_subtitle">www.siecola.com.br</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="str_please_sign_in">Please sign in:</string>
+    <string name="str_sign_out">Sign out</string>
+    <string name="str_products">Products</string>
+    <string name="str_name">Name:</string>
+    <string name="str_code">Code:</string>
+    <string name="str_description">Description:</string>
+    <string name="str_price">Price:</string>
+    <string name="str_edit_product">Edit product</string>
+    <string name="str_delete_product">Delete product</string>
+    <string name="str_no">No</string>
+    <string name="str_yes">Yes</string>
+    <string name="str_want_delete_product">Are you sure you want to delete this product?</string>
 </resources>
