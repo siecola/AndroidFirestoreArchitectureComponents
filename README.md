@@ -52,7 +52,7 @@ At this time, the Firestore database is configured for the application, but it's
 
 To configure the Firestore security rules, inside its section, access the `Rules` tab. The current security rule will be shown. Change it to the following:
 
-```json
+```properties
 service cloud.firestore {
   match /databases/{database}/documents {
     match /products/{product} {
@@ -88,7 +88,7 @@ To implement the Android application it's necessary to import some libraries to 
 
 * Add the `google-services` dependency:
 
-  ```json
+  ```properties
   dependencies {
   	classpath 'com.android.tools.build:gradle:3.4.0'
   	classpath 'com.google.gms:google-services:4.2.0'
@@ -103,7 +103,7 @@ To implement the Android application it's necessary to import some libraries to 
 
 * Inside the `dependencies` section, add these dependencies:
 
-  ```json
+  ```properties
   implementation 'com.android.support:recyclerview-v7:28.0.0'
   
   implementation "android.arch.lifecycle:extensions:1.1.1"
