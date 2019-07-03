@@ -81,31 +81,17 @@ public class ProductRepository {
         return liveProject;
     }
 
-    public void saveProduct(Product product)  {
-        mFirestore.collection(Product.COLLECTION)
-                .whereEqualTo(Product.FIELD_userId, mFirebaseAuth.getUid())
-                .whereEqualTo(Product.FIELD_code, product.getCode())
-                .limit(1)
-                .get().addOnCompleteListener(task -> {
-                    boolean existCode = false;
-                    if (task.isSuccessful()) {
-                        if (task.getResult().getDocuments().size() > 0) {
-                            DocumentSnapshot document = task.getResult().getDocuments().get(0);
-                            existCode = (product.getId() == null) || (!product.getId().equals(document.getId()));
-                        }
-                        if (!existCode) {
-                            DocumentReference document;
-                            if (product.getId() != null) {
-                                document = mFirestore.collection(Product.COLLECTION).document(product.getId());
-                            } else {
-                                product.setUserId(mFirebaseAuth.getUid());
-                                document = mFirestore.collection(Product.COLLECTION).document();
-                            }
-                            document.set(product);
-                            product.setId(document.getId());
-                        }
-                    }
-                });
+    public String saveProduct(Product product)  {
+        DocumentReference document;
+        if (product.getId() != null) {
+            document = mFirestore.collection(Product.COLLECTION).document(product.getId());
+        } else {
+            product.setUserId(mFirebaseAuth.getUid());
+            document = mFirestore.collection(Product.COLLECTION).document();
+        }
+        document.set(product);
+
+        return document.getId();
     }
 
     public void deleteProduct(String productId) {
